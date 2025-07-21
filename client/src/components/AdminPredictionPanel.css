@@ -1,0 +1,337 @@
+/* .admin-panel {
+  direction: rtl;
+  max-width: 500px;
+  margin: auto;
+  font-family: 'Arial';
+  padding: 2rem;
+}
+
+.admin-controls label {
+  display: block;
+  margin: 1rem 0;
+}
+
+.admin-controls input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.admin-button, .save-button, .download-button {
+  margin-top: 1rem;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.save-button {
+  background-color: #51ABCD;
+  border: none;
+  color: white;
+}
+
+.download-button {
+  background-color: #644C3D;
+  border: none;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+.message {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: darkgreen;
+} */
+
+html {
+    overflow-x: hidden; /* מונע סרגל גלילה אופקי ברמת ה-HTML */
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif; /* שימוש בפונט Inter */
+    direction: rtl; /* כדי שיתמוך בעברית מימין לשמאל */
+    background: linear-gradient(135deg, #87CEEB, #ADD8E6); /* רקע כחול בהיר - חלק מהאנימציה הכוללת */
+    min-height: 100vh; /* וודא שתופס את כל גובה המסך */
+    position: relative; /* חשוב לפסאודו-אלמנטים */
+    overflow-x: hidden; /* *** מונע סרגל גלילה אופקי ב-body *** */
+    overflow-y: auto; /* מאפשר גלילה אנכית אם התוכן ארוך */
+    
+    display: flex; /* כדי למרכז את ה-admin-panel */
+    justify-content: center; /* מרכז אופקית */
+    align-items: flex-start; /* מיישר למעלה */
+    padding-top: 2rem; /* רווח עליון כדי שהפאנל לא ידבק למעלה */
+    box-sizing: border-box;
+}
+
+/* אנימציית רקע - מעגל מתרחב על ה-body */
+body::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(166, 22, 22, 0.1); /* מעגלים אדומים שקופים */
+    animation: expand-circle 5s infinite ease-out;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+/* שכבת על לרקע (מעגל שני) על ה-body */
+body::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(61, 13, 233, 0.08); /* מעגל כחול שקוף עדין יותר */
+    animation: expand-circle-2 7s infinite ease-in-out;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+/* הגדרות ה-keyframes עבור אנימציית הרקע */
+@keyframes expand-circle {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 200vw;
+        height: 200vw;
+        opacity: 0;
+    }
+}
+
+@keyframes expand-circle-2 {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.8;
+    }
+    100% {
+        width: 250vw;
+        height: 250vw;
+        opacity: 0;
+    }
+}
+
+/* ------------------------------------------------ */
+/* עיצוב פאנל המנהל - החלון הלבן */
+/* ------------------------------------------------ */
+.admin-panel {
+    background-color: #ffffff; /* רקע לבן לפאנל הראשי */
+    padding: 2rem;
+    border-radius: 1rem; /* פינות מעוגלות */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* צל עדין */
+    width: 90%; /* רוחב רספונסיבי */
+    max-width: 700px; /* רוחב מקסימלי לפאנל הלבן (ניתן להתאים) */
+    position: relative; /* חשוב כדי שה-z-index יעבוד מעל הרקע */
+    z-index: 1; /* יהיה מעל האנימציה */
+    direction: rtl; /* יישור מימין לשמאל עבור עברית */
+    text-align: right; /* יישור טקסט לימין */
+    
+    /* אנימציית כניסה לפאנל הלבן */
+    transform: translateY(-20px); /* תזוזה קלה למעלה */
+    animation: slide-in 0.8s ease-out forwards;
+
+    display: flex; /* לסידור פנימי של הסקשנים */
+    flex-direction: column;
+    gap: 1.5rem; /* רווחים בין הסקשנים השונים */
+}
+
+/* הגדרות ה-keyframes עבור אנימציית הכניסה של הפאנל הלבן */
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-20px);
+    }
+}
+
+/* ------------------------------------------------ */
+/* עיצוב סקשנים פנימיים (החלקים האפורים המופרדים) */
+/* ------------------------------------------------ */
+.admin-controls,
+.file-section,
+.controls-section {
+    background-color: #f8f8f8; /* רקע אפרפר בהיר לסקשנים הפנימיים */
+    padding: 1.5rem;
+    border-radius: 0.75rem; /* פינות מעוגלות קצת פחות מהפאנל הראשי */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* צל פנימי קל */
+    border: 1px solid #e0e0e0; /* גבול עדין */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* רווחים בין האלמנטים בתוך הסקשן */
+}
+
+/* ------------------------------------------------ */
+/* עיצוב רכיבים בתוך הסקשנים */
+/* ------------------------------------------------ */
+
+/* כפתור חזרה לעמוד הבית */
+.admin-button { /* זהו הכפתור "חזרה לעמוד הבית" בתוך הפאנל הלבן */
+    background-color: #60a5fa; /* כחול בהיר */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: flex-start; /* יישור הכפתור לשמאל (בגלל rtl) */
+    margin-bottom: 1rem; /* רווח מתחת לכפתור */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin-button:hover {
+    background-color: #3b82f6; /* כחול כהה יותר במעבר עכבר */
+    transform: translateY(-2px); /* אפקט קל במעבר עכבר */
+}
+
+/* כותרות סקשנים */
+.section-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center; /* יישור כותרות למרכז */
+    font-weight: 700; /* הדגשה */
+}
+
+/* לייבלים ואינפוטים */
+label {
+    display: flex;
+    flex-direction: row-reverse; /* כדי שהטקסט יהיה מימין לאינפוט */
+    justify-content: flex-end; /* יישור לימין */
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+input[type="number"],
+input[type="file"] {
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    width: 150px; /* רוחב קבוע לאינפוטים מספריים */
+    text-align: right; /* יישור טקסט לימין בתוך האינפוט */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="file"] {
+    width: auto; /* רוחב אוטומטי לקובץ */
+    flex-grow: 1; /* יתפוס מקום זמין */
+}
+
+input[type="number"]:focus,
+input[type="file"]:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3); /* צל כחול בפוקוס */
+    outline: none;
+}
+
+/* כפתורי פעולה (שמור הגדרות, העלה קובץ, בצע חיזוי, הורד) */
+.predict-button,
+.upload-button {
+    background-color: #4ade80; /* ירוק בהיר */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    align-self: center; /* מרכוז הכפתורים */
+    width: fit-content; /* רוחב לפי התוכן */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.predict-button:hover,
+.upload-button:hover {
+    background-color: #22c55e; /* ירוק כהה יותר במעבר עכבר */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.predict-button:disabled,
+.upload-button:disabled {
+    background-color: #a7f3d0; /* ירוק בהיר יותר כשהוא מנוטרל */
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* הודעות (הצלחה/שגיאה) */
+.message {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+}
+
+.message.success { /* אם תרצה להוסיף קלאס success */
+    color: #16a34a; /* ירוק כהה */
+    background-color: #dcfce7; /* ירוק בהיר מאוד */
+    border: 1px solid #86efac;
+}
+
+.message.error { /* אם תרצה להוסיף קלאס error */
+    color: #dc2626; /* אדום כהה */
+    background-color: #fee2e2; /* אדום בהיר מאוד */
+    border: 1px solid #fca5a5;
+}
+
+/* הודעת חיזוי אחרון */
+.last-prediction-info {
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* קונטיינר פנימי עבור אפשרויות חיזוי */
+.controls-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px dashed #cbd5e1; /* גבול מקווקו עדין */
+    border-radius: 0.5rem;
+    background-color: #f0f4f8; /* רקע כחלחל בהיר יותר */
+}
+
+/* רספונסיביות בסיסית */
+@media (max-width: 768px) {
+    .admin-panel {
+        padding: 1rem;
+        width: 95%;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    label {
+        flex-direction: column; /* בעמודות קטנות, לייבל מעל אינפוט */
+        align-items: flex-end; /* יישור לימין */
+    }
+
+    input[type="number"],
+    input[type="file"] {
+        width: 100%; /* רוחב מלא לאינפוטים */
+    }
+}

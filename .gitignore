@@ -1,0 +1,29 @@
+# Node.js
+node_modules/
+npm-debug.log
+dist/
+build/
+
+# React
+frontend-react/node_modules/
+frontend-react/build/
+
+# C#
+bin/
+obj/
+*.user
+*.suo
+
+# Embedded (לדוגמה, קבצי בינאריים או פלטים)
+*.bin
+*.elf
+*.hex
+*.map
+*.o
+*.d
+
+# כללי
+*.log
+.env
+.DS_Store
+Thumbs.db

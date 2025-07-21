@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="project.Program">
+    <Position X="7.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="project.Globals">
+    <Position X="5.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAFAYAAAAEAACAAAAAAQAAA=</HashCode>
+      <FileName>Globals.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="project.LinearRegression">
+    <Position X="9" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIIABAAAQAACAAAAABAAABAAAQAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>LinearRegression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="project.DataLoader">
+    <Position X="3.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAACAAAAAAAAEAAAAAABAAAAAA=</HashCode>
+      <FileName>DataLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="project.PredictionEnhancements">
+    <Position X="2" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PredictionEnhancements.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

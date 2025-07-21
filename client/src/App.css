@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  direction: rtl; /* כדי שיתמוך בעברית מימין לשמאל */
+  background-color: #f0f2f5; /* צבע רקע ברירת מחדל למקרה שהאנימציה לא נטענת */
+  overflow: hidden; /* למנוע גלילה אם האנימציה יוצרת עודף תוכן */
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #87CEEB, #ADD8E6); /* רקע כחול בהיר */
+}
+
+/* אנימציית רקע - מעגל מתרחב בתדירות גבוהה יותר */
+.main-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2); /* מעגלים לבנים שקופים */
+  animation: expand-circle 8s infinite ease-out; /* זמן קצר יותר: 8 שניות במקום 15 */
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+@keyframes expand-circle {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 200vw; /* גדול מספיק לכסות את המסך */
+    height: 200vw;
+    opacity: 0;
+  }
+}
+
+/* שכבת על לרקע (אפשר להוסיף מעגלים נוספים או אפקטים) */
+.main-container::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1); /* מעגל שני עדין יותר */
+  animation: expand-circle-2 10s infinite ease-in-out; /* זמן קצר יותר: 10 שניות במקום 20 */
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+@keyframes expand-circle-2 {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.8;
+  }
+  100% {
+    width: 250vw;
+    height: 250vw;
+    opacity: 0;
+  }
+}
+
+
+.content-box {
+  background-color: #ffffff; /* ריבוע לבן */
+  padding: 40px 50px; /* הגדלתי ריפוד לפרופורציה טובה יותר */
+  border-radius: 15px; /* פינות מעוגלות */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* צל עדין יותר ובולט */
+  text-align: center;
+  max-width: 600px; /* רוחב מקסימלי לריבוע הלבן */
+  width: 90%; /* יתאים את עצמו לגודל המסך */
+  position: relative; /* חשוב כדי שה-z-index יעבוד */
+  z-index: 1; /* יהיה מעל האנימציה */
+  transform: translateY(-20px); /* תזוזה קלה למעלה */
+  animation: slide-in 0.8s ease-out forwards;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+}
+
+
+.main-title {
+  font-size: 2.2em; /* גודל כותרת ראשית */
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: bold;
+}

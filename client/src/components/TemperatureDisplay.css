@@ -1,0 +1,194 @@
+/* .temperature-card {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 420px;
+  margin: 32px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.temperature-card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.temperature-card h2 {
+  color: #1a4d80;
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+}
+
+.temperature-card button {
+  background-color: #1a73e8;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 16px;
+}
+
+.temperature-card button:hover {
+  background-color: #0c57c6;
+}
+
+.temperature-row {
+  margin-bottom: 12px;
+}
+
+.temperature-row label {
+  font-size: 1rem;
+}
+
+.temperature-row input[type="text"] {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 80px;
+  margin-right: 6px;
+}
+
+.success-msg {
+  color: green;
+  margin-top: 12px;
+}
+
+.error-msg {
+  color: red;
+  margin-top: 12px;
+}
+
+.temperature-card {
+  margin-bottom: 30px; /* רווח מתחת לכרטיס */
+/* } */
+
+.card {
+  border: none;
+  background: none;
+  padding: 0;
+  box-shadow: none;
+}
+
+.section-title {
+  font-size: 1.6em;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: right;
+  padding-right: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+button {
+  background-color: #69be7d; /* כפתור ירוק אחיד */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 10px 5px;
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2); /* צל ירוק */
+}
+
+button:hover {
+  background-color: #c8e9ce; /* ירוק בהיר יותר במעבר עכבר */
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* כפתור "מעבר להזנה ידנית" - גם הוא ירוק עכשיו */
+.temperature-card > div > button {
+  background-color: #69be7d; /* כפתור ירוק אחיד */
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+}
+
+.temperature-card > div > button:hover {
+   background-color: #c8e9ce; /* ירוק בהיר יותר במעבר עכבר */
+}
+
+
+div[style*="margin-bottom: 10px"] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1em;
+  color: #444;
+  padding: 8px 0;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+input[type="text"] {
+  padding: 8px 12px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  text-align: right;
+  width: 120px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+p {
+  margin: 5px 0;
+  text-align: right;
+  flex-grow: 1;
+}
+
+.ai-loader {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.success-msg {
+  color: #28a745;
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 1.1em;
+  background-color: #e6ffe6;
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #28a745;
+}
+
+.error-msg {
+  color: #dc3545;
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 1.1em;
+  background-color: #ffe6e6;
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #dc3545;
+  white-space: pre-wrap;
+}
